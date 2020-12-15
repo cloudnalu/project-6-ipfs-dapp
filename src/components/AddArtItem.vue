@@ -36,8 +36,8 @@ export default {
 			if (!path) throw new Error("Failed to add art item to IPFS");
 
 			const tokenURI = `https://ipfs.io/ipfs/${path}`;
-			const parsedPrice = parseEther(price.value.toString());
-			await ethers.addArtItem(parsedPrice, tokenURI);
+			const parsedPrice = parseEther(price.value.toString());			
+			await ethers.addArtItem(parsedPrice, tokenURI);  // Add item to blockchain
 
 			// clear input
 			price.value = null;

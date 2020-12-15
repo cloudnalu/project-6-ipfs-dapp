@@ -1,10 +1,12 @@
 import { ethers } from "ethers";
 import { inject } from "vue";
 
-import DigitalArt from "../../../build/contracts/DigitalArt.json";
+// Import the ABI
+import DigitalArt from "../../build/contracts/DigitalArt.json";
 
 const ETHERS_INJECTION_KEY = "ETHERS";
 
+// Instantiate web3 conection, connect to the smart contract.
 const newEthers = () => {
 	const provider = new ethers.providers.Web3Provider(window.ethereum);
 	const signer = provider.getSigner();

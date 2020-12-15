@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
 import { ref, provide } from "vue";
 
 import { UseEthers } from "@/plugins/ethers";
