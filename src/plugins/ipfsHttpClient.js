@@ -1,6 +1,8 @@
 import IPFSHttpClient from "ipfs-http-client";
 import { inject } from "vue";
 
+
+/// not working ipfs connection
 const IPFS_INJECTION_KEY = "IPFS-HTTP-CLIENT";
 
 const newIPFS = () => {
