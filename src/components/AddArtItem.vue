@@ -1,9 +1,10 @@
 <template>
 	<section class="add-art-item-container">
+		<input type="string" v-model="storedData" placeholder="Data" />
 		<input type="number" v-model="price" placeholder="Price" />
 		<label v-if="!artItem" class="add-art-item-label">
 			<input type="file" accept="image/*" @change="onArtSelection" />
-			Add Art
+			Add Asset
 		</label>
 
 		<button v-else @click="addArtItem()">
@@ -24,6 +25,7 @@ export default {
 		const ethers = UseEthers();
 		const ipfs = UseIPFSClient();
 
+		const storedData = ref(null);
 		const price = ref(null);
 		const artItem = ref(null);
 
@@ -35,16 +37,19 @@ export default {
 			const { path } = await ipfs.add(artItem.value);
 			if (!path) throw new Error("Failed to add art item to IPFS");
 
+			const storedData = "null";
 			const tokenURI = `https://ipfs.io/ipfs/${path}`;
 			const parsedPrice = parseEther(price.value.toString());			
-			await ethers.addArtItem(parsedPrice, tokenURI);  // Add item to blockchain
+			await ethers.addArtItem(parsedPrice, storedData, tokenURI);  // Add item to blockchain
 
 			// clear input
+			storedData.value = null;
 			price.value = null;
 			artItem.value = null;
 		};
 
 		return {
+			storedData,
 			price,
 			artItem,
 			onArtSelection,

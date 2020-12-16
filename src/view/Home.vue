@@ -1,6 +1,6 @@
 <template>
 	<section class="flex home-container">
-		<h1 class="title">Buy Digital Art</h1>
+		<h1 class="title">Asset Sales</h1>
 
 		<template class="flex" v-if="account">
 			<button v-if="!hasPayment" @click="checkPayments()">

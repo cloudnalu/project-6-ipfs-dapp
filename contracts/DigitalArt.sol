@@ -11,6 +11,7 @@ contract DigitalArt is ERC721, PullPayment {
 
     struct ArtItem {
         address seller;
+        string storedData;
         uint256 price;
         string tokenURI;
         bool exists;
@@ -23,11 +24,11 @@ contract DigitalArt is ERC721, PullPayment {
         _;
     }
 
-    function addArtItem(uint256 price, string memory tokenURI) public {
+    function addArtItem( uint256 price, string memory storedData, string memory tokenURI) public {
         require(price > 0, "Price cannot be 0");
 
         _artItemIds++;
-        _artItems[_artItemIds] = ArtItem(msg.sender, price, tokenURI, true);
+        _artItems[_artItemIds] = ArtItem(msg.sender, price, storedData, tokenURI, true);
     }
 
     function getArtItem(uint256 id)
@@ -37,11 +38,12 @@ contract DigitalArt is ERC721, PullPayment {
         returns (
             uint256,
             uint256,
+            string memory,
             string memory
         )
     {
         ArtItem memory artItem = _artItems[id];
-        return (id, artItem.price, artItem.tokenURI);
+        return (id, artItem.price, artItem.storedData, artItem.tokenURI);
     }
 
     function purchaseArtItem(uint256 artItemId)
