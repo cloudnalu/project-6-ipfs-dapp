@@ -3,7 +3,7 @@
 		<input type="number" v-model="price" placeholder="Price" />
 		<label v-if="!artItem" class="add-art-item-label">
 			<input type="file" accept="image/*" @change="onArtSelection" />
-			Add Art for Sale
+			Upload Art
 		</label>
 
 		<button v-else @click="addArtItem()">

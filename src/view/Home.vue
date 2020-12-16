@@ -19,7 +19,7 @@
 		</template>	
 	</section>
 	<section class="flex home-container">
-		<h1 class="title">Buy Digital Art</h1>
+		<h1 class="title">Sell Digital Art</h1>
 			<AddArtItem />
 			<ArtItems />
 	</section>
