@@ -3,7 +3,10 @@
 ## Project setup
 ```
 npm install
+
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'Liams-MacBook-Pro:nft-digital-markeipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
 ```
+IPFS daemon
 
 ### Compiles and hot-reloads for development
 ```

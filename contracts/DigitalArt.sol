@@ -3,11 +3,14 @@ pragma solidity >=0.4.22 <0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/payment/PullPayment.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract DigitalArt is ERC721, PullPayment {
+contract DigitalArt is ERC721, PullPayment, Ownable {
     uint256 public _tokenIds;
     uint256 public _artItemIds;
     mapping(uint256 => ArtItem) private _artItems;
+    bool isActive = true;
+    address admin;
 
     struct ArtItem {
         address seller;
@@ -16,14 +19,19 @@ contract DigitalArt is ERC721, PullPayment {
         bool exists;
     }
 
-    constructor() public ERC721("DigitalArt", "ART") {}
+    constructor() public ERC721("DigitalArt", "ART") {
+        admin = msg.sender;
+    }
 
     modifier artItemExist(uint256 id) {
         require(_artItems[id].exists, "Not Found");
         _;
     }
 
-    function addArtItem( uint256 price, string memory tokenURI) public {
+    function addArtItem( uint256 price, string memory tokenURI) 
+        public
+        contractIsActive
+    {
         require(price > 0, "Price cannot be 0");
 
         _artItemIds++;
@@ -47,6 +55,7 @@ contract DigitalArt is ERC721, PullPayment {
     function purchaseArtItem(uint256 artItemId)
         external
         payable
+        contractIsActive
         artItemExist(artItemId)
     {
         ArtItem storage artItem = _artItems[artItemId];
@@ -63,4 +72,20 @@ contract DigitalArt is ERC721, PullPayment {
     function getPayments() external {
         withdrawPayments(msg.sender);
     }
+
+    ///function killContract() public
+    ///{
+    ///       if(msg.sender == owner()) selfdestruct(address(uint160(owner()))); // cast owner to address payable
+    ///}
+    
+    function toggleCircuitBreaker() external {
+        require(admin == msg.sender);
+        isActive = !isActive;
+    }
+    modifier contractIsActive() {
+        require(isActive == true);
+        _;
+    }
+
+
 }

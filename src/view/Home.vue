@@ -1,23 +1,27 @@
-<template>
-	<section class="flex home-container">
-		<h1 class="title">Asset Sales</h1>
 
+
+<template>
+	<section class="flex nav-bar">
+		<button class="connect-btn" @click="connect()">
+			Connect to App
+			</button>
 		<template class="flex" v-if="account">
-			<button v-if="!hasPayment" @click="checkPayments()">
+			<button class="withdraw-btn" v-if="!hasPayment" @click="checkPayments()">
 				Check for Payments
+			</button>
+			<button class="admin-btn" v-if="account" @click="toggleCircuitBreaker()">
+			Open/Close Store
 			</button>
 
 			<button class="withdraw-btn" v-else @click="withdrawPayments()">
 				Withdraw Payments
 			</button>
-
+		</template>	
+	</section>
+	<section class="flex home-container">
+		<h1 class="title">Buy Digital Art</h1>
 			<AddArtItem />
 			<ArtItems />
-		</template>
-
-		<button v-else class="connect-btn" @click="connect()">
-			Connect to App
-		</button>
 	</section>
 </template>
 
@@ -48,6 +52,10 @@ export default {
 			hasPayment.value = false;
 		};
 
+		const toggleCircuitBreaker = async () => {
+			await ethers.toggleCircuitBreaker();
+		};
+
 		const connect = async () => {
 			const ethAccounts = await window.ethereum.request({
 				method: "eth_requestAccounts"
@@ -63,7 +71,8 @@ export default {
 			account,
 			hasPayment,
 			checkPayments,
-			withdrawPayments
+			withdrawPayments,
+			toggleCircuitBreaker
 		};
 	}
 };
@@ -76,17 +85,27 @@ export default {
 }
 
 .title {
-	font-size: 5em;
+	font-size: 3em;
 	margin: 0;
 	padding: 50px 0 20px 0;
 	font-family: "Fredoka One", sans-serif;
 }
 
 .connect-btn {
-	margin: 30px 0;
+	margin: 20px;
+	background-color: rgb(100 , 100, 100);
+
 }
 
 .withdraw-btn {
 	background-color: rgb(22, 128, 57);
+	margin: 20px;
+}
+.admin-btn {
+	background-color: rgb(22, 128, 57);
+	margin: 20px;
+}
+.nav-bar {
+	align-items: left;
 }
 </style>
