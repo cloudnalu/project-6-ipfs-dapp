@@ -63,7 +63,7 @@ export default {
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	text-align: center;
-	background-color: rgb(32, 32, 32);
+	background-color: #060606;
 	margin-top: -5px;
 	font-weight: bold;
 	font-size: 1em;
