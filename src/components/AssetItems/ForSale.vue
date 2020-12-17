@@ -1,10 +1,10 @@
 <template>
 	<div class="container">
-		<h2 class="title">Art For Sale</h2>
+		<h2 class="title">Asset For Sale</h2>
 
-		<div class="flex art-item-list">
-			<ul v-for="item in artItems" :key="item">
-				<li><img class="art-item" :src="item.tokenURI" alt="Art" /></li>
+		<div class="flex asset-item-list">
+			<ul v-for="item in assetItems" :key="item">
+				<li><img class="asset-item" :src="item.tokenURI" alt="Asset" /></li>
 				<li class="price">
 					Price: {{ item.price }} ETH
 					<button class="purchase-btn" @click="purchase(item.id, item.price)">
@@ -25,15 +25,15 @@ import { UseEthers } from "@/plugins/ethers";
 export default {
 	async setup() {
 		const ethers = UseEthers();
-		const artItemIds = Number(await ethers._artItemIds());
+		const assetItemIds = Number(await ethers._assetItemIds());
 
-		const artItems = ref([]);
+		const assetItems = ref([]);
 
-		for (let i = 1; i <= artItemIds; i++) {
-			const [id, priceInWei, tokenURI] = await ethers.getArtItem(i);
+		for (let i = 1; i <= assetItemIds; i++) {
+			const [id, priceInWei, tokenURI] = await ethers.getAssetItem(i);
 			const price = formatEther(priceInWei);
 
-			artItems.value.push({
+			assetItems.value.push({
 				id,
 				price,
 				tokenURI
@@ -41,13 +41,13 @@ export default {
 		}
 
 		const purchase = async (id, price) => {
-			await ethers.purchaseArtItem(id, {
+			await ethers.purchaseAssetItem(id, {
 				value: parseEther(price.toString())
 			});
 		};
 
 		return {
-			artItems,
+			assetItems,
 			purchase
 		};
 	}

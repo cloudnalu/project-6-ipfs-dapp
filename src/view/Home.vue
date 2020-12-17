@@ -19,9 +19,9 @@
 		</template>	
 	</section>
 	<section class="flex home-container">
-		<h1 class="title">Sell Digital Art</h1>
-			<AddArtItem />
-			<ArtItems />
+		<h1 class="title">Buy & Sell Digital Assests</h1>
+			<AddAssetItem />
+			<AssetItems />
 	</section>
 </template>
 
@@ -88,7 +88,7 @@ export default {
 	font-size: 3em;
 	margin: 0;
 	padding: 50px 0 20px 0;
-	font-family: "Fredoka One", sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 
 .connect-btn {

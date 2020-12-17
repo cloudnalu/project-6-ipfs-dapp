@@ -1,10 +1,10 @@
 <template>
 	<div v-if="tokenURIs.length > 0" class="container">
-		<h2 class="title">My Art Purchases</h2>
+		<h2 class="title">My Asset Purchases</h2>
 
-		<div class="flex art-item-list">
+		<div class="flex asset-item-list">
 			<ul v-for="uri in tokenURIs" :key="uri">
-				<li><img class="art-item" :src="uri" alt="Art" /></li>
+				<li><img class="asset-item" :src="uri" alt="Asset" /></li>
 			</ul>
 		</div>
 	</div>

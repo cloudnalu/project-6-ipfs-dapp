@@ -1,5 +1,5 @@
 <template>
-	<section class="flex art-items-container">
+	<section class="flex asset-items-container">
 		<Suspense>
 			<ForSale />
 		</Suspense>
@@ -23,23 +23,23 @@ export default {
 </script>
 
 <style>
-.art-items-container {
+.asset-items-container {
 	flex-direction: column;
 	width: 100%;
 }
 
-.art-item-list {
+.asset-item-list {
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
 
-.art-item-list ul {
+.asset-item-list ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.art-item {
+.asset-item {
 	max-width: 450px;
 	max-height: 450px;
 	object-fit: contain;

@@ -1,12 +1,12 @@
 <template>
-	<section class="add-art-item-container">
+	<section class="add-asset-item-container">
 		<input type="number" v-model="price" placeholder="Price" />
-		<label v-if="!artItem" class="add-art-item-label">
-			<input type="file" accept="image/*" @change="onArtSelection" />
-			Upload Art
+		<label v-if="!assetItem" class="add-asset-item-label">
+			<input type="file" accept="image/*" @change="onAssetSelection" />
+			Upload Asset
 		</label>
 
-		<button v-else @click="addArtItem()">
+		<button v-else @click="addAssetItem()">
 			Publish
 		</button>
 	</section>
@@ -25,45 +25,45 @@ export default {
 		const ipfs = UseIPFSClient();
 
 		const price = ref(null);
-		const artItem = ref(null);
+		const assetItem = ref(null);
 
-		const onArtSelection = () => {
-			artItem.value = event.target.files[0];
+		const onAssetSelection = () => {
+			assetItem.value = event.target.files[0];
 		};
 
-		const addArtItem = async () => {
-			const { path } = await ipfs.add(artItem.value);
-			if (!path) throw new Error("Failed to add art item to IPFS");
+		const addAssetItem = async () => {
+			const { path } = await ipfs.add(assetItem.value);
+			if (!path) throw new Error("Failed to add asset item to IPFS");
 
 			const tokenURI = `https://ipfs.io/ipfs/${path}`;
 			const parsedPrice = parseEther(price.value.toString());			
-			await ethers.addArtItem(parsedPrice, tokenURI);  // Add item to blockchain
+			await ethers.addAssetItem(parsedPrice, tokenURI);  // Add item to blockchain
 
 			// clear input
 			price.value = null;
-			artItem.value = null;
+			assetItem.value = null;
 		};
 
 		return {
 			price,
-			artItem,
-			onArtSelection,
-			addArtItem
+			assetItem,
+			onAssetSelection,
+			addAssetItem
 		};
 	}
 };
 </script>
 
 <style scoped>
-.add-art-item-container {
+.add-asset-item-container {
 	padding: 40px;
 }
 
-.add-art-item-container input {
+.add-asset-item-container input {
 	padding: 10px;
 }
 
-.add-art-item-label {
+.add-asset-item-label {
 	background-color: #ee4540;
 	padding: 8px 12px;
 	cursor: pointer;

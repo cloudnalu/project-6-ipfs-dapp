@@ -1,4 +1,4 @@
-import AddArtItem from "./AddArtItem";
-import ArtItems from "./ArtItems/ArtItems";
+import AddAssetItem from "./AddAssetItem";
+import AssetItems from "./AssetItems/AssetItems";
 
-export default { AddArtItem, ArtItems };
+export default { AddAssetItem, AssetItems };
