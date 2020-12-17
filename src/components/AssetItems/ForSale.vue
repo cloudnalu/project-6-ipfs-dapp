@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<h2 class="title">Asset For Sale</h2>
+		<h2 class="title">For Sale</h2>
 
 		<div class="flex asset-item-list">
 			<ul v-for="item in assetItems" :key="item">

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.8.0;
 
-/// @title A simulator for trees
-/// @author Larry A. Gardner
+/// @title Asset & Escrow 
+/// @author Liam Grist
 /// @notice You can use this contract for only the most basic simulation
-/// @dev All function calls are currently implemented without side effects
+/// @dev Need to configure IPFS with Infura node
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/payment/PullPayment.sol";
@@ -34,7 +34,7 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
         bool exists;
     }
 
-    constructor() public ERC721("DigitalAsset", "ART") {
+    constructor() public ERC721("DigitalAsset", "ABC") {
         admin = msg.sender;
     }
 

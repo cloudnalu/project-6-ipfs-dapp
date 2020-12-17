@@ -32,6 +32,10 @@ If you’re having trouble compiling/migrating the contracts, delete the abis fo
 $ NPM run serve to open the front-end application
 $ IPFS daemon
 Check that IPFS is running by going to http://127.0.0.1:5001/webui
+<<<<<<< HEAD
+=======
+The front end app also needs to be running on localhost:3000.
+>>>>>>> 62a88d12c9ed000a07d38b94cb90ec09075c0d8d
 If your receiving a CORS error in your console, configure the API
 $ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://localhost:3000", "http://127.0.0.1:5001", "https://webui.ipfs.io"]'
 $ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'

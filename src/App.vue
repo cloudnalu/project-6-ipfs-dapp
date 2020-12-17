@@ -15,7 +15,6 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Fredoka+One&display=swap");
 
 html {
 	background-color: #0f0f0f;

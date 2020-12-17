@@ -1,4 +1,4 @@
 The contract was successfully migrated to be live on the Rinkeby testnet. 
 Contract Address: 
-https://rinkeby.etherscan.io/address/0xBf4200fBe8B1De0a85ffe6339793144828301d0f
-Account Owner: 0xCfA7146773c42df75123fb67c294B17419c81fC2
+https://rinkeby.etherscan.io/address/0xaa1C116286e063C5dD1576905dA4D36f7720b0B7
+Account Owner: 0xeCA02A7CCBbcd02Ab1e660020dd5a81013220324
