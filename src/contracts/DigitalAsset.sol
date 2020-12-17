@@ -103,10 +103,6 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
         withdrawPayments(msg.sender);
     }
 
-    ///function killContract() public
-    ///{
-    ///       if(msg.sender == owner()) selfdestruct(address(uint160(owner()))); // cast owner to address payable
-    ///}
     
 /// @notice allow the admin/owner of the contract to turn the availability of purchasing payments on or off
     function toggleCircuitBreaker() external {
