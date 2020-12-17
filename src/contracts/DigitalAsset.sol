@@ -34,7 +34,7 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
         bool exists;
     }
 
-    constructor() public ERC721("DigitalAsset", "ART") {
+    constructor() public ERC721("DigitalAsset", "ABC") {
         admin = msg.sender;
     }
 
