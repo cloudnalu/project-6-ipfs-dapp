@@ -1357,7 +1357,11 @@
   },
   "networks": {},
   "schemaVersion": "3.3.1",
+<<<<<<< Updated upstream
   "updatedAt": "2020-12-17T22:06:14.226Z",
+=======
+  "updatedAt": "2020-12-17T21:58:45.142Z",
+>>>>>>> Stashed changes
   "devdoc": {
     "details": "Implementation of the {IERC165} interface. * Contracts may inherit from this and call {_registerInterface} to declare their support of an interface.",
     "methods": {

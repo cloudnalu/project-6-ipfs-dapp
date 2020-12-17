@@ -884,7 +884,11 @@
   },
   "networks": {},
   "schemaVersion": "3.3.1",
+<<<<<<< Updated upstream
   "updatedAt": "2020-12-17T22:06:14.223Z",
+=======
+  "updatedAt": "2020-12-17T21:58:45.138Z",
+>>>>>>> Stashed changes
   "devdoc": {
     "methods": {}
   },

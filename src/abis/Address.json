@@ -6740,7 +6740,11 @@
   },
   "networks": {},
   "schemaVersion": "3.3.1",
+<<<<<<< Updated upstream
   "updatedAt": "2020-12-17T22:06:14.248Z",
+=======
+  "updatedAt": "2020-12-17T21:58:45.169Z",
+>>>>>>> Stashed changes
   "devdoc": {
     "details": "Collection of functions related to the address type",
     "methods": {}
