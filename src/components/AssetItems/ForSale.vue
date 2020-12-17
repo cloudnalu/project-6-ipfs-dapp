@@ -4,10 +4,15 @@
 
 		<div class="flex asset-item-list">
 			<ul v-for="item in assetItems" :key="item">
-				<li><img class="asset-item" :src="item.tokenURI" alt="Asset" /></li>
+				<li>
+					<img class="asset-item" :src="item.tokenURI" alt="Asset" />
+				</li>
 				<li class="price">
 					Price: {{ item.price }} ETH
-					<button class="purchase-btn" @click="purchase(item.id, item.price)">
+					<button
+						class="purchase-btn"
+						@click="purchase(item.id, item.price)"
+					>
 						Purchase
 					</button>
 				</li>

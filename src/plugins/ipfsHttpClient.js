@@ -1,14 +1,13 @@
 import IPFSHttpClient from "ipfs-http-client";
 import { inject } from "vue";
 
-
 const IPFS_INJECTION_KEY = "IPFS-HTTP-CLIENT";
 
 const newIPFS = () => {
 	return IPFSHttpClient({
-		host: "localhost",
+		host: "ipfs.infura.io",
 		port: "5001",
-		protocol: "http",
+		protocol: "https",
 		timeout: 5000
 	});
 };

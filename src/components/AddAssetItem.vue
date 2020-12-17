@@ -35,9 +35,9 @@ export default {
 			const { path } = await ipfs.add(assetItem.value);
 			if (!path) throw new Error("Failed to add asset item to IPFS");
 
-			const tokenURI = `https://ipfs.io/ipfs/${path}`;
-			const parsedPrice = parseEther(price.value.toString());			
-			await ethers.addAssetItem(parsedPrice, tokenURI);  // Add item to blockchain
+			const tokenURI = `https://ipfs.infura.io/ipfs/${path}`;
+			const parsedPrice = parseEther(price.value.toString());
+			await ethers.addAssetItem(parsedPrice, tokenURI); // Add item to blockchain
 
 			// clear input
 			price.value = null;

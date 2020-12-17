@@ -1,32 +1,37 @@
-
-
 <template>
 	<section class="flex nav-bar">
 		<button class="connect-btn" @click="connect()">
 			Connect to App
-			</button>
+		</button>
 		<template class="flex" v-if="account">
-			<button class="withdraw-btn" v-if="!hasPayment" @click="checkPayments()">
+			<button
+				class="withdraw-btn"
+				v-if="!hasPayment"
+				@click="checkPayments()"
+			>
 				Check for Payments
 			</button>
-			<button class="admin-btn" v-if="account" @click="toggleCircuitBreaker()">
-			Open/Close Store
+			<button
+				class="admin-btn"
+				v-if="account"
+				@click="toggleCircuitBreaker()"
+			>
+				Open/Close Store
 			</button>
 
 			<button class="withdraw-btn" v-else @click="withdrawPayments()">
 				Withdraw Payments
 			</button>
-		</template>	
+		</template>
 	</section>
 	<section class="flex home-container">
 		<h1 class="title">Buy & Sell Digital Assests</h1>
-			<AddAssetItem />
-			<AssetItems />
+		<AddAssetItem />
+		<AssetItems />
 	</section>
 </template>
 
 <script>
-
 import { ref, provide } from "vue";
 
 import { UseEthers } from "@/plugins/ethers";
@@ -93,8 +98,7 @@ export default {
 
 .connect-btn {
 	margin: 20px;
-	background-color: rgb(100 , 100, 100);
-
+	background-color: rgb(100, 100, 100);
 }
 
 .withdraw-btn {
