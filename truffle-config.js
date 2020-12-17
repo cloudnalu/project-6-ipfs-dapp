@@ -23,7 +23,7 @@ module.exports = {
 		}
 	},
 
-  contracts_directory: './contracts/',
+  contracts_directory: './src/contracts/',
   contracts_build_directory: './src/abis/',
 
 	// Configure your compilers

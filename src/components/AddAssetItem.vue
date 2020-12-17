@@ -37,7 +37,7 @@ export default {
 
 			const tokenURI = `https://ipfs.io/ipfs/${path}`;
 			const parsedPrice = parseEther(price.value.toString());
-			await ethers.addAssetItem(parsedPrice, tokenURI); // Add item to blockchain
+			await ethers.addAssetItem(parsedPrice, tokenURI); 
 
 			// clear input
 			price.value = null;

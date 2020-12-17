@@ -1,6 +1,6 @@
-const DigitalArt = artifacts.require("DigitalArt");
+const DigitalArt = artifacts.require("DigitalAsset");
 
-contract("DigitalArt", (accounts) => {
+contract("DigitalAsset", (accounts) => {
 	let contract = null;
 	const tAccountOne = accounts[0];
 	const tAccountTwo = accounts[1];
