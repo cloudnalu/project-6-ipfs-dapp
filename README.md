@@ -32,10 +32,9 @@ If you’re having trouble compiling/migrating the contracts, delete the abis fo
 $ NPM run serve to open the front-end application
 $ IPFS daemon
 Check that IPFS is running by going to http://127.0.0.1:5001/webui
-If your receiving a CORS error in your console, search for the error and edit your IPFS configuration
+If your receiving a CORS error in your console, configure the API
+$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://localhost:3000", "http://127.0.0.1:5001", "https://webui.ipfs.io"]'
+$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
 You can deploy the contract to the Rinkeby testnet, but need to reconfigure IPFS to connect to infura instead of your locally running node. You can reconfigure by editing the IPFS client plugin config file. You also need Rinkeby testETH
 Truffle migrate --network rinkeby
 Connect to the project using the connect button via ethers.js
-
-
-
