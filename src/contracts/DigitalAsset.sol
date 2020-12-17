@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.8.0;
 
-/// @title A simulator for trees
-/// @author Larry A. Gardner
+/// @title Asset & Escrow 
+/// @author Liam Grist
 /// @notice You can use this contract for only the most basic simulation
-/// @dev All function calls are currently implemented without side effects
+/// @dev Need to configure IPFS with Infura node
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/payment/PullPayment.sol";
@@ -30,7 +30,6 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
     struct AssetItem {
         address seller;
         uint256 price;
-        string data;
         string tokenURI;
         bool exists;
     }
@@ -50,14 +49,14 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
 /// @notice check if seller has given a price for the item
 /// @notice create new item object with the item ID value and pass in the parameters
 /// @notice increment item ID 
-    function addAssetItem( uint256 price, string data, string memory tokenURI) 
+    function addAssetItem( uint256 price, string memory tokenURI) 
         public
         contractIsActive
     {
         require(price > 0, "Price cannot be 0"); 
 
         _assetItemIds++;  
-        _assetItems[_assetItemIds] = AssetItem(msg.sender, price, data, tokenURI, true); 
+        _assetItems[_assetItemIds] = AssetItem(msg.sender, price, tokenURI, true); 
     }
 
 /// @notice users invoke a public function to get the items from the mapping with passed in ID. If an item object is found, unwrap it and return the data. 
@@ -70,12 +69,11 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
         returns (
             uint256,
             uint256,
-            string,
             string memory
         )
     {
         AssetItem memory assetItem = _assetItems[id];
-        return (id, assetItem.price, assetItem.data, assetItem.tokenURI);
+        return (id, assetItem.price, assetItem.tokenURI);
     }
 /// @notice purchase item, passing in the price and item ID. Make public and payable to enable buyer to send ether to the function. 
 /// @notice get the item object with the passed in item ID and check if exists, then check if the buyer has sent the required amount of ether.
