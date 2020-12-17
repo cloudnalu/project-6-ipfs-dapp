@@ -2268,11 +2268,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.1",
-<<<<<<< Updated upstream
-  "updatedAt": "2020-12-17T22:06:14.262Z",
-=======
-  "updatedAt": "2020-12-17T21:58:45.182Z",
->>>>>>> Stashed changes
+  "updatedAt": "2020-12-17T22:46:14.199Z",
   "devdoc": {
     "details": "String operations.",
     "methods": {}
