@@ -48,13 +48,14 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
 /// @notice seller invokes a public function for adding an item with a price and a tokenURI
 /// @notice check if seller has given a price for the item
 /// @notice create new item object with the item ID value and pass in the parameters
+/// @notice increment item ID 
     function addAssetItem( uint256 price, string memory tokenURI) 
         public
         contractIsActive
     {
         require(price > 0, "Price cannot be 0"); 
 
-        _assetItemIds++;  /// @notice increment item ID 
+        _assetItemIds++;  
         _assetItems[_assetItemIds] = AssetItem(msg.sender, price, tokenURI, true); 
     }
 

@@ -1,4 +1,4 @@
-const DigitalArt = artifacts.require("DigitalAsset");
+const DigitalAsset = artifacts.require("DigitalAsset");
 
 contract("DigitalAsset", (accounts) => {
 	let contract = null;
@@ -6,14 +6,14 @@ contract("DigitalAsset", (accounts) => {
 	const tAccountTwo = accounts[1];
 	const tAccountThree = accounts[3];
 	const tTokenURI = "https://somewhere.test";
-	const tArtItemIdOne = 1;
+	const tAssetItemIdOne = 1;
 	const tPrice100 = 100;
 	const tBid100 = 100;
 	const tBid1 = 1;
 
 
 	before(async () => {
-		contract = await DigitalArt.deployed();
+		contract = await DigitalAsset.deployed();
 	});
 
 	it("should deploy smart contract", () => {
@@ -22,13 +22,13 @@ contract("DigitalAsset", (accounts) => {
 		assert.isNotNull(tAccountTwo);
 	});
 
-	it("should create art item", async () => {
+	it("should create asset item", async () => {
 		// Arrange
 		let err = null;
 
 		// Act
 		try {
-			await contract.addArtItem(tPrice100, tTokenURI, { from: tAccountThree });
+			await contract.addAssetItem(tPrice100, tTokenURI, { from: tAccountThree });
 		} catch (error) {
 			err = error;
 		}
@@ -37,14 +37,14 @@ contract("DigitalAsset", (accounts) => {
 		assert.isNull(err);
 	});
 
-	it("should get art item", async () => {
+	it("should get asset item", async () => {
 		// Arrange
 		let err = null;
 		let response = null;
 
 		// Act
 		try {
-			response = await contract.getArtItem(tArtItemIdOne);
+			response = await contract.getAssetItem(tAssetItemIdOne);
 		} catch (error) {
 			err = error;
 		}
@@ -55,13 +55,13 @@ contract("DigitalAsset", (accounts) => {
 		assert.equal(response[2], tTokenURI);
 	});
 
-	it("should not add art item with price of zero", async () => {
+	it("should not add asset item with price of zero", async () => {
 		// Arrange
 		let err = null;
 
 		// Act
 		try {
-			await contract.addArtItem(0, tTokenURI, { from: tAccountThree });
+			await contract.addAssetItem(0, tTokenURI, { from: tAccountThree });
 		} catch (error) {
 			err = error;
 		}
@@ -71,7 +71,7 @@ contract("DigitalAsset", (accounts) => {
 		assert.equal(err.reason, "Price cannot be 0");
 	});
 
-	it("account one should purchase art item", async () => {
+	it("account one should purchase asset item", async () => {
 		// Arrange
 		let err = null;
 		let tokenOwner = null;
@@ -79,7 +79,7 @@ contract("DigitalAsset", (accounts) => {
 
 		// Act
 		try {
-			await contract.purchaseArtItem(tArtItemIdOne, { from: tAccountOne, value: tBid100 });
+			await contract.purchaseAssetItem(tAssetItemIdOne, { from: tAccountOne, value: tBid100 });
 
 			const result = await Promise.all([
 				contract.ownerOf(1),
@@ -98,13 +98,13 @@ contract("DigitalAsset", (accounts) => {
 		assert.equal(tokenURI, tTokenURI);
 	});
 
-	it("should not purchase art token when bid is lower than the price", async () => {
+	it("should not purchase asset token when bid is lower than the price", async () => {
 		// Arrange
 		let err = null;
 
 		// Act
 		try {
-			await contract.purchaseArtItem(tArtItemIdOne, { from: tAccountOne, value: tBid1 });
+			await contract.purchaseAssetItem(tAssetItemIdOne, { from: tAccountOne, value: tBid1 });
 		} catch (error) {
 			err = error;
 		}
@@ -114,7 +114,7 @@ contract("DigitalAsset", (accounts) => {
 		assert.equal(err.reason, "Your bid is too low");
 	});
 
-	it("account two should purchase two art items", async () => {
+	it("account two should purchase two asset items", async () => {
 		// Arrange
 		let err = null;
 		let tokenOwnerOne = null;
@@ -125,8 +125,8 @@ contract("DigitalAsset", (accounts) => {
 		// Act
 		try {
 			await Promise.all([
-				contract.purchaseArtItem(tArtItemIdOne, { from: tAccountTwo, value: tBid100 }),
-				contract.purchaseArtItem(tArtItemIdOne, { from: tAccountTwo, value: tBid100 })
+				contract.purchaseAssetItem(tAssetItemIdOne, { from: tAccountTwo, value: tBid100 }),
+				contract.purchaseAssetItem(tAssetItemIdOne, { from: tAccountTwo, value: tBid100 })
 			]);
 
 			const result = await Promise.all([
@@ -152,13 +152,13 @@ contract("DigitalAsset", (accounts) => {
 		assert.equal(tokenURITwo, tTokenURI);
 	});
 
-	it("should not purchase an art item that does not exist", async () => {
+	it("should not purchase an asset item that does not exist", async () => {
 		// Arrange
 		let err = null;
 
 		// Act
 		try {
-			await contract.purchaseArtItem(999, { from: tAccountTwo, value: tBid100 })
+			await contract.purchaseAssetItem(999, { from: tAccountTwo, value: tBid100 })
 		} catch (error) {
 			err = error;
 		}
@@ -200,7 +200,7 @@ contract("DigitalAsset", (accounts) => {
 		expect(accountTokenIds).to.not.include.members([1]);
 	});
 
-	it("account three should be able to withdraw payments from sold art items", async () => {
+	it("account three should be able to withdraw payments from sold asset items", async () => {
 		// Arrange
 		let err = null;
 		let tx = null;
