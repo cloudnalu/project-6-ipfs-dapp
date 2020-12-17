@@ -30,11 +30,12 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
     struct AssetItem {
         address seller;
         uint256 price;
+        string data;
         string tokenURI;
         bool exists;
     }
 
-    constructor() public ERC721("DigitalAsset", "ART") {
+    constructor() public ERC721("DigitalAsset", "ABC") {
         admin = msg.sender;
     }
 
@@ -49,14 +50,14 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
 /// @notice check if seller has given a price for the item
 /// @notice create new item object with the item ID value and pass in the parameters
 /// @notice increment item ID 
-    function addAssetItem( uint256 price, string memory tokenURI) 
+    function addAssetItem( uint256 price, string data, string memory tokenURI) 
         public
         contractIsActive
     {
         require(price > 0, "Price cannot be 0"); 
 
         _assetItemIds++;  
-        _assetItems[_assetItemIds] = AssetItem(msg.sender, price, tokenURI, true); 
+        _assetItems[_assetItemIds] = AssetItem(msg.sender, price, data, tokenURI, true); 
     }
 
 /// @notice users invoke a public function to get the items from the mapping with passed in ID. If an item object is found, unwrap it and return the data. 
@@ -69,11 +70,12 @@ contract DigitalAsset is ERC721, PullPayment, Ownable {
         returns (
             uint256,
             uint256,
+            string,
             string memory
         )
     {
         AssetItem memory assetItem = _assetItems[id];
-        return (id, assetItem.price, assetItem.tokenURI);
+        return (id, assetItem.price, assetItem.data, assetItem.tokenURI);
     }
 /// @notice purchase item, passing in the price and item ID. Make public and payable to enable buyer to send ether to the function. 
 /// @notice get the item object with the passed in item ID and check if exists, then check if the buyer has sent the required amount of ether.

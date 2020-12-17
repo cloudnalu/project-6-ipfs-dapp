@@ -10,6 +10,9 @@
 			<button class="withdraw-btn" v-else @click="withdrawPayments()">
 				Withdraw Payments
 			</button>
+			<button class="admin-btn" @click="toggleCircuitBreaker()">
+				Disable/Enable Contract
+			</button>
 
 			<AddAssetItem />
 			<AssetItems />
@@ -54,6 +57,9 @@ export default {
 
 			account.value = ethAccounts[0];
 		};
+		const toggleCircuitBreaker = async () => {
+			await ethers.toggleCircuitBreaker();
+		};
 
 		provide(ACCOUNT_INJECTION_KEY, account);
 
@@ -62,7 +68,8 @@ export default {
 			account,
 			hasPayment,
 			checkPayments,
-			withdrawPayments
+			withdrawPayments,
+			toggleCircuitBreaker
 		};
 	}
 };
@@ -87,5 +94,9 @@ export default {
 
 .withdraw-btn {
 	background-color: rgb(22, 128, 57);
+}
+.admin-btn {
+	background-color: rgb(22, 128, 57);
+	margin: 20px;
 }
 </style>
