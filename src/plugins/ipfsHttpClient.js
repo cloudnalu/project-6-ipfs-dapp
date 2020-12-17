@@ -5,9 +5,9 @@ const IPFS_INJECTION_KEY = "IPFS-HTTP-CLIENT";
 
 const newIPFS = () => {
 	return IPFSHttpClient({
-		host: "ipfs.infura.io",
+		host: "localhost",
 		port: "5001",
-		protocol: "https",
+		protocol: "http",
 		timeout: 5000
 	});
 };

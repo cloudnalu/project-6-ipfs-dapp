@@ -29,6 +29,8 @@
 		<AddAssetItem />
 		<AssetItems />
 	</section>
+			<AssetItems />
+
 </template>
 
 <script>

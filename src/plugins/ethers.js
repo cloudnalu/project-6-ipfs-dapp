@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import { inject } from "vue";
 
 // Import the ABI
-import DigitalAsset from "../../build/contracts/DigitalAsset.json";
+import DigitalAsset from "../abis/DigitalAsset.json";
 
 const ETHERS_INJECTION_KEY = "ETHERS";
 

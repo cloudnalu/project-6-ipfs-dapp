@@ -49,7 +49,7 @@ export default {
 
 .title {
 	text-align: center;
-	font-family: "Fredoka One", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 3em;
 }
 </style>

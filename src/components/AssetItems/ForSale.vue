@@ -71,8 +71,10 @@ export default {
 	background-color: #060606;
 	margin-top: -5px;
 	font-weight: bold;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1em;
 	padding: 10px;
+
 }
 
 .purchase-btn {
