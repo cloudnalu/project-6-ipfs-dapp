@@ -1,4 +1,3 @@
-
 README
 
 This is a dapp for buyers and sellers of an image asset. 
@@ -18,20 +17,25 @@ The front-end web application may be hosted on localhost:3000.
 To run the project:
 
 Dependencies:
-Node (I used 14.9.0)
+Node (I used v14.9.0)
 Ganache
 Truffle
 IPFS Client
 
-1. Clone the project from github
-2. Install the dependencies with $npm install
-3. Start Ganache
-4. $ truffle migrate --reset
-5. $ NPM run serve to open the front-end application
-6. $ IPFS daemon
-7. Check that IPFS is running by going to http://127.0.0.1:5001/webui
-8. If your receiving a CORS error in your console, edit your IPFS configuration in the console by running $ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'Liams-MacBook-Pro:nft-digital-markeipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
-9. You can deploy the contract to the Rinkeby testnet, but need to reconfigure IPFS to connect to infura instead of your locally running node. You can reconfigure by editing the IPFS client plugin config file. You also need Rinkeby testETH
-10. Truffle migrate --network rinkeby
-11. Connect to the project using the connect button using web3 via ethers.js and interact with the app
+Clone the project from github
+Install the dependencies with $npm install
+Start Ganache
+Copy mnemonic from Ganache
+Create a .env file from the exampledotenv file and paste in the mnemonic in quotes
+$ truffle migrate --reset
+If you’re having trouble compiling/migrating the contracts, delete the abis folder and recompile/migrate. 
+$ NPM run serve to open the front-end application
+$ IPFS daemon
+Check that IPFS is running by going to http://127.0.0.1:5001/webui
+If your receiving a CORS error in your console, search for the error and edit your IPFS configuration
+You can deploy the contract to the Rinkeby testnet, but need to reconfigure IPFS to connect to infura instead of your locally running node. You can reconfigure by editing the IPFS client plugin config file. You also need Rinkeby testETH
+Truffle migrate --network rinkeby
+Connect to the project using the connect button via ethers.js
+
+
 
