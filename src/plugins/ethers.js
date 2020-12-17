@@ -12,7 +12,7 @@ const newEthers = () => {
 	const signer = provider.getSigner();
 
 	return new ethers.Contract(
-		DigitalAsset.networks[5777].address,
+		DigitalAsset.networks[4].address,
 		DigitalAsset.abi,
 		signer
 	);
