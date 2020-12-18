@@ -17,8 +17,7 @@
     "ipfs-http-client": "^48.1.2",
     "truffle": "^5.1.57",
     "truffle-hdwallet-provider-privkey": "^0.3.0",
-    "vue": "^3.0.0",
-    "webpack": "^5.11.0"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
