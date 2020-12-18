@@ -21,6 +21,7 @@ Node (I used v14.9.0)
 Ganache
 Truffle
 IPFS Client
+Metamask or web3 wallet provider
 
 Clone the project from github
 Install the dependencies with $npm install
