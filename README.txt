@@ -36,6 +36,5 @@ Check that IPFS is running by going to http://127.0.0.1:5001/webui
 The front end app also needs to be running on localhost:3000.
 If your receiving a CORS error in your console after npm serve, configure the API.
 
-You can deploy the contract to the Rinkeby testnet, but need to reconfigure IPFS to connect to infura instead of your locally running node. You can reconfigure by editing the IPFS client plugin config file. You also need Rinkeby testETH
-Truffle migrate --network rinkeby
+The contract is deployed to Rinkeby testnet. You could redeploy it using command truffle migrate --network rinkeby
 Connect to the project using the connect button via ethers.js
