@@ -1,6 +1,5 @@
 <template>
 	<section class="add-asset-item-container">
-		<input type="text-area" v-model="Data" placeholder="Description" />
 		<input type="number" v-model="price" placeholder="Price" />
 		<label v-if="!assetItem" class="add-asset-item-label">
 			<input type="file" accept="image/*" @change="onAssetSelection" />
