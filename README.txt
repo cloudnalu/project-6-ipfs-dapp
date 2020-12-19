@@ -17,7 +17,7 @@ The front-end web application may be hosted on localhost:3000.
 To run the project:
 
 Dependencies:
-Node (I used v14.9.0)
+Node (I used v15.5.0)
 Ganache
 Truffle
 IPFS Client
