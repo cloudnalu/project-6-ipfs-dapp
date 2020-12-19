@@ -1,7 +1,10 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "project-6",
+  "version": "1.0.0",
   "private": true,
+  "engines": {
+  "node": "15.4.0"
+  },
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
