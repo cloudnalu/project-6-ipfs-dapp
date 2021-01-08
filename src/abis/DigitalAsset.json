@@ -6269,12 +6269,12 @@
         }
       },
       "links": {},
-      "address": "0x364DEEc835bA366972FBB95FAA2590fC47404297",
-      "transactionHash": "0xf32f80d44b0d9a4cf32d8715c71c377f8fb821c7c945a3857de25b91a40d7db4"
+      "address": "0xD5EAC4239cA429c7891D69B36aCD144E79b35Fee",
+      "transactionHash": "0x5ba7785d01e7fab46b8c69d924e1c7c0dbe03596020216864eb93ad9c8b0051e"
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-01-08T06:33:19.943Z",
+  "updatedAt": "2021-01-08T07:29:48.460Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "The Alexandr N. Tetearing algorithm could increase precision",
