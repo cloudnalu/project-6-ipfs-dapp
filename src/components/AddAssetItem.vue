@@ -16,13 +16,13 @@
 import { ref } from "vue";
 import { parseEther } from "ethers/lib/utils";
 
-import { UseIPFSClient } from "@/plugins/ipfsHttpClient";
+///import { UseIPFSClient } from "@/plugins/ipfsHttpClient";
 import { UseEthers } from "@/plugins/ethers";
 
 export default {
 	setup() {
 		const ethers = UseEthers();
-		const ipfs = UseIPFSClient();
+		///const ipfs = UseIPFSClient();
 
 		const price = ref(null);
 		const assetItem = ref(null);
@@ -32,10 +32,9 @@ export default {
 		};
 
 		const addAssetItem = async () => {
-			const { path } = await ipfs.add(assetItem.value);
-			if (!path) throw new Error("Failed to add asset item to IPFS");
-
-			const tokenURI = `https://ipfs.io/ipfs/${path}`;
+			///const { path } = await ipfs.add(assetItem.value);
+			///if (!path) throw new Error("Failed to add asset item to IPFS");
+			const tokenURI = "abc";
 			const parsedPrice = parseEther(price.value.toString());
 			await ethers.addAssetItem(parsedPrice, tokenURI); 
 
